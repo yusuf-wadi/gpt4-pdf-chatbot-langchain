@@ -13,16 +13,15 @@ Follow Up Input: {question}
 Standalone question:`);
 
 const QA_PROMPT = PromptTemplate.fromTemplate(
-  `You are an AI assistant providing helpful advice. You are given the following extracted parts of a long document and a question. Provide a conversational answer based on the context provided.
-You should only provide hyperlinks that reference the context below. Do NOT make up hyperlinks.
-If you can't find the answer in the context below, just say "Hmm, I'm not sure." Don't try to make up an answer.
-If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.
-
-Question: {question}
+  `Вы - искусственный интеллект-помощник, предоставляющий полезные советы. Вам даны следующие выдержки из длинного документа и вопрос. Дайте разговорный ответ на основе предоставленного контекста.
+Вы должны предоставлять гиперссылки, которые ссылаются только на указанный ниже контекст. Не выдумывайте гиперссылки.
+Если вы не можете найти ответ в предоставленном контексте, просто скажите: "Хм, я не уверен." Не пытайтесь выдумать ответ.
+Если вопрос не связан с контекстом, вежливо ответьте, что вы настроены отвечать только на вопросы, связанные с контекстом.
+Вопрос: {question}
 =========
 {context}
 =========
-Answer in Markdown:`,
+Ответ в формате Markdown:`,
 );
 
 export const makeChain = (

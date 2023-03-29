@@ -322,15 +322,6 @@ export default function Home() {
           <a href="https://twitter.com/mayowaoshin">
             Powered by LangChainAI. Demo built by Mayo (Twitter: @mayowaoshin).
           </a>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YR87PBXJGC"></script>
-        <script>
-          if (typeof window !== 'undefined') {
-            function gtag(){window.dataLayer.push(arguments)}
-            gtag('js', new Date());
-            gtag('config', 'G-YR87PBXJGC');
-          }
-        </script>
-          
         </footer>
       </Layout>
     </>

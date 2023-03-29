@@ -282,7 +282,7 @@ export default function Home() {
                     placeholder={
                       loading
                         ? 'Waiting for response...'
-                        : 'Enter your question in English'
+                        : 'Введите ваш вопрос на русском языке'
                     }
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}

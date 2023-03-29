@@ -5,12 +5,12 @@ import { PromptTemplate } from 'langchain/prompts';
 import { CallbackManager } from 'langchain/callbacks';
 
 const CONDENSE_PROMPT =
-  PromptTemplate.fromTemplate(`Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
+  PromptTemplate.fromTemplate(`Учитывая следующий разговор и последующий вопрос, перефразируйте последующий вопрос так, чтобы он был самостоятельным вопросом.
 
-Chat History:
+История чата:
 {chat_history}
-Follow Up Input: {question}
-Standalone question:`);
+Последующий вопрос: {question}
+Самостоятельный вопрос:`);
 
 const QA_PROMPT = PromptTemplate.fromTemplate(
   `Вы - искусственный интеллект-помощник, предоставляющий полезные советы. Вам даны следующие выдержки из длинного документа и вопрос. Дайте разговорный ответ на основе предоставленного контекста.
@@ -54,6 +54,6 @@ export const makeChain = (
     combineDocumentsChain: docChain,
     questionGeneratorChain: questionGenerator,
     returnSourceDocuments: true,
-    k: 2, //number of source documents to return
+    k: 5, //number of source documents to return
   });
 };

@@ -1,0 +1,7 @@
+project: chat
+configVersion: 1
+
+---
+
+image: chat
+dockerfile: Dockerfile

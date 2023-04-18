@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: chat
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            name: chat
+    template:
+        metadata:
+            labels:
+                name: chat
+        spec:
+            imagePullSecrets:
+                - name: regcred
+            containers:
+                - name: chat
+                  image: {{ .Values.werf.image.chat }}
+                  ports:
+                      - containerPort: 3000

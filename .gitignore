@@ -41,3 +41,7 @@ next-env.d.ts
 
 #docs
 /docs
+
+# werf
+.werf_secret_key
+werf_secrets.yaml

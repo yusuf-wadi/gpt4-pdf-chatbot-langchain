@@ -1,21 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: chat
+  name: chat
 spec:
-    replicas: 1
-    selector:
-        matchLabels:
-            name: chat
-    template:
-        metadata:
-            labels:
-                name: chat
-        spec:
-            imagePullSecrets:
-                - name: regcred
-            containers:
-                - name: chat
-                  image: {{ .Values.werf.image.chat }}
-                  ports:
-                      - containerPort: 3000
+  replicas: 1
+  selector:
+    matchLabels:
+      name: chat
+  template:
+    metadata:
+      labels:
+        name: chat
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: chat
+          image: {{ .Values.werf.image.chat }}
+          env:
+            - name: OPENAI_API_KEY
+              value: {{ .Values.OPENAI_API_KEY }}
+            - name: PINECONE_API_KEY
+              value: {{ .Values.PINECONE_API_KEY }}
+            - name: PINECONE_ENVIRONMENT
+              value: {{ .Values.PINECONE_ENVIRONMENT }}
+            - name: PINECONE_INDEX_NAME
+              value: {{ .Values.PINECONE_INDEX_NAME }}
+          ports:
+            - containerPort: 3000

@@ -43,3 +43,4 @@ jobs:
         env:
           WERF_KUBECONFIG_BASE64: ${{ secrets.KUBE_CONFIG_BASE64 }}
           WERF_ENV: test
+          WERF_SECRET_KEY: ${{ secrets.WERF_SECRET_KEY }}

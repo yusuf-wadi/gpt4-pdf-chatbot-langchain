@@ -9,6 +9,7 @@ COPY . .
 
 # Install dependencies
 RUN npm install && npm cache clean --force && npm install -g pnpm
+RUN pnpm build
 
 # Expose ports
 EXPOSE 3000

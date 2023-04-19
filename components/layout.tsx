@@ -12,7 +12,7 @@ export default function Layout({ children }: LayoutProps) {
           <nav className="ml-4 pl-6">
             <Link href="/">
               <a className="hover:text-slate-600 cursor-pointer">
-                Start NEW chat
+                Start a NEW chat
               </a>
             </Link>
           </nav>

@@ -1,3 +1,8 @@
+# Fork Changes
+
+- removed source from chat
+- changed prompting to english
+
 # GPT-4 & LangChain - Create a ChatGPT Chatbot for Your PDF Files
 
 Use the new GPT-4 api to build a chatGPT chatbot for multiple Large PDF files.

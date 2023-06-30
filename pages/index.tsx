@@ -7,17 +7,18 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import LoadingDots from '@/components/ui/LoadingDots';
 import { Document } from 'langchain/document';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
+// import {
+//   Accordion,
+//   AccordionContent,
+//   AccordionItem,
+//   AccordionTrigger,
+// } from '@/components/ui/accordion';
 
 export default function Home() {
+  const company_name = 'Monoware Studios';
   const [query, setQuery] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  const [sourceDocs, setSourceDocs] = useState<Document[]>([]);
+  //const [sourceDocs, setSourceDocs] = useState<Document[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [messageState, setMessageState] = useState<{
     messages: Message[];
@@ -27,7 +28,7 @@ export default function Home() {
   }>({
     messages: [
       {
-        message: 'Hi, what would you like to learn about systems thinking?',
+        message: `What would you like to know about ${company_name}?`,
         type: 'apiMessage',
       },
     ],
@@ -165,7 +166,7 @@ export default function Home() {
       <Layout>
         <div className="mx-auto flex flex-col gap-4">
           <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center">
-            Chat With Your Artificial Intelligence Systems Assistant
+            {company_name} Chatbot
           </h1>
           <main className={styles.main}>
             <div className={styles.cloud}>

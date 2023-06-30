@@ -5,23 +5,20 @@ import { PromptTemplate } from 'langchain/prompts';
 import { CallbackManager } from 'langchain/callbacks';
 
 const CONDENSE_PROMPT =
-  PromptTemplate.fromTemplate(`Учитывая следующий разговор и последующий вопрос, перефразируйте последующий вопрос так, чтобы он был самостоятельным вопросом.
+  PromptTemplate.fromTemplate(`Given the following conversation and subsequent question, rephrase the subsequent question into a standalone question.
 
-История чата:
-{chat_history}
-Последующий вопрос: {question}
-Самостоятельный вопрос:`);
+  Chat History:
+  {chat_history}
+  Subsequent Question: {question}
+  Standalone Question:`);
 
 const QA_PROMPT = PromptTemplate.fromTemplate(
-  `Вы - искусственный интеллект-помощник, предоставляющий полезные советы. Вам даны следующие выдержки из длинного документа и вопрос. Дайте разговорный ответ на основе предоставленного контекста.
-Вы должны предоставлять гиперссылки, которые ссылаются только на указанный ниже контекст. Не выдумывайте гиперссылки.
-Если вы не можете найти ответ в предоставленном контексте, просто скажите: "Хм, я не уверен." Не пытайтесь выдумать ответ.
-Если вопрос не связан с контекстом, вежливо ответьте, что вы настроены отвечать только на вопросы, связанные с контекстом.
-Вопрос: {question}
-=========
-{context}
-=========
-Ответ в формате Markdown:`,
+  `You are an AI assistant providing helpful advice. You are given the following excerpts from a long document and a question. Give a conversational answer based on the provided context. Do not make up hyperlinks or answers - if the question is not related to the context, politely respond that you are only set up to answer questions related to the context. Answer in Markdown format:
+
+  Question: {question}
+  =========
+  {context}
+  =========`,
 );
 
 export const makeChain = (
